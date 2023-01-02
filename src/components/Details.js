@@ -9,8 +9,9 @@ const Details = () => {
     const value = useContext(DataContext);
     const [products] = value.products;
     const addCart = value.addCart;
-    const [index, setIndex] = useState(0);
+    const [index, setIndex] = useState(0); // index ko initially 0 rakho 
     const imgDiv = useRef();
+
     const details = products.filter((product,index) =>{
         return product._id === id;
     })
@@ -20,7 +21,6 @@ const Details = () => {
         const x = (e.pageX - left) / width*100;
         const y = (e.pageY - top) / width*100;
         imgDiv.current.style.backgroundPosition = `${x}% ${y}%`;
-
     }
 
 
@@ -46,7 +46,7 @@ const Details = () => {
                          <p>{product.description}</p>
                          <p>{product.content}</p>
                          <DetailsThumbs images={product.images}  setIndex={setIndex}/>
-                         <button className='cart' onClick={() => addCart(product._id)}>Add to Cart</button>
+                         <button className='cart' onClick={() => addCart(product._id)}>Add to Cart</button>         
                       </div>
 
 

@@ -1,7 +1,7 @@
-import React, {createContext, useState, useEffect} from 'react'
+import React, {createContext, useState, useEffect} from 'react';
 
 export const DataContext = createContext();
-
+// images colors aur sizes array ke form mai rahega
 export const DataProvider = (props) => {
     const [products, setProducts] = useState([
         {
@@ -110,8 +110,7 @@ export const DataProvider = (props) => {
 
   
     
-    const [cart, setCart] = useState([])
-
+    const [cart, setCart] = useState([]);
     const addCart = (id) =>{
         const check = cart.every(item =>{
             return item._id !== id
@@ -121,14 +120,16 @@ export const DataProvider = (props) => {
                 return product._id === id
             })
             setCart([...cart, ...data])
-        }else{
+        }
+        
+        else{
             alert("The product has been added to cart.")
         }
     }
 
     useEffect(() =>{
        const dataCart =  JSON.parse(localStorage.getItem('dataCart'))
-       if(dataCart) setCart(dataCart)
+       if(dataCart) setCart(dataCart);
     },[])
 
     useEffect(() =>{
